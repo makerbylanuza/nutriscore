@@ -47,4 +47,4 @@ if __name__ == "__main__":
         print("\n--- Texto Extraído ---")
         print(extracted_text)
     else:
-        print("\nNo se pudo extraer texto.")++
+        print("\nNo se pudo extraer texto.")

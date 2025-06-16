@@ -1,14 +1,21 @@
 // .devcontainer/devcontainer.json
 {
-  "name": "PyTesseract Codespace",
-  "image": "mcr.microsoft.com/devcontainers/python:0-3.10",
+  "name": "PyTesseract OCR Project",
+  // Usa una imagen de Python de devcontainers, que ya debería tener pip
+  //"image": "mcr.microsoft.com/devcontainers/python:0-3.10",
+  // O podrías probar una versión más específica o diferente si la 3.10 te da problemas
+  "image": "mcr.microsoft.com/devcontainers/python:3.9-bullseye",
+
   "features": {
-    // Instala Tesseract OCR como una característica de devcontainer
+    // Instala Tesseract OCR y los paquetes de idioma necesarios
     "ghcr.io/devcontainers/features/apt:1": {
-      "packages": "tesseract-ocr tesseract-ocr-eng tesseract-ocr-spa" // 'eng' para inglés, 'spa' para español. Añade los que necesites.
+      "packages": "tesseract-ocr tesseract-ocr-eng tesseract-ocr-spa" // Agrega o quita idiomas según necesites
     }
   },
-  "postCreateCommand": "pip install -r requirements.txt", // Instala las dependencias de Python después de crear el Codespace
+
+  // Este comando se ejecuta *después* de que el contenedor base está listo y las features instaladas
+  "postCreateCommand": "pip install -r requirements.txt",
+
   "customizations": {
     "vscode": {
       "extensions": [
@@ -16,5 +23,11 @@
         "ms-vscode.vscode-linter-pylint"
       ]
     }
-  }
+  },
+
+  // Configuración adicional útil para entornos Python
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1" // Útil para la salida en tiempo real
+  },
+  "remoteUser": "vscode" // Usa el usuario por defecto de devcontainers
 }
