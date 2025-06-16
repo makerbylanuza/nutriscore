@@ -2,6 +2,20 @@
 from PIL import Image
 import pytesseract
 import os
+import re
+
+nombres_aceites = {
+    "aceite de palma": r"aceite de palma",
+    "aceite de girasol": r"aceite de girasol",
+    "aceite de colza": r"aceite de colza",
+    "aceite de soja": r"aceite de soja",
+    "aceite de maíz": r"aceite de maíz",
+    "aceite de sésamo": r"aceite de sésamo",
+}
+
+contiene_aceites = {
+
+}
 
 # --- Configuración (opcional pero recomendado) ---
 # Si Tesseract no está en tu PATH, puedes especificar su ubicación
@@ -38,13 +52,13 @@ if __name__ == "__main__":
     # Crea una imagen de prueba simple (o usa una existente)
     # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
     # Por ejemplo, una imagen llamada 'test_image.png'
-    test_image_path = "tests/data/test.jpg"
+    test_image_path = "tests/data/patatas.png"
 
     # Ejecuta el OCR
     extracted_text = perform_ocr(test_image_path)
 
-    if extracted_text:
-        print("\n--- Texto Extraído ---")
-        print(extracted_text)
-    else:
-        print("\nNo se pudo extraer texto.")
+    for aceite, patron in nombres_aceites.items():
+        if re.search(patron, extracted_text.lower()):
+            print(f"¡Se encontró '{aceite}' en los ingredientes!")
+        else:
+            print(f"'{aceite}' no encontrado.")
