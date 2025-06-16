@@ -1,55 +1,66 @@
+# app.py
 from PIL import Image
-
 import pytesseract
+import os
 
-# If you don't have tesseract executable in your PATH, include the following:
-pytesseract.pytesseract.tesseract_cmd = r'<full_path_to_your_tesseract_executable>'
-# Example tesseract_cmd = r'C:\Program Files (x86)\Tesseract-OCR\tesseract'
+# --- Configuración (opcional pero recomendado) ---
+# Si Tesseract no está en tu PATH, puedes especificar su ubicación
+# En un Codespace con la configuración anterior, probablemente no sea necesario
+# pero es bueno saberlo.
+# pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
-# Simple image to string
-print(pytesseract.image_to_string(Image.open('test.png')))
+def perform_ocr(image_path):
+    """
+    Realiza OCR en una imagen dada y devuelve el texto extraído.
+    """
+    if not os.path.exists(image_path):
+        print(f"Error: La imagen '{image_path}' no se encontró.")
+        return None
 
-# In order to bypass the image conversions of pytesseract, just use relative or absolute image path
-# NOTE: In this case you should provide tesseract supported images or tesseract will return error
-print(pytesseract.image_to_string('test.png'))
+    try:
+        # Abrir la imagen
+        img = Image.open(image_path)
+        print(f"Imagen '{image_path}' cargada con éxito.")
 
-# List of available languages
-print(pytesseract.get_languages(config=''))
+        # Realizar OCR
+        # lang='eng+spa' le dice a Tesseract que use datos de idioma inglés y español
+        text = pytesseract.image_to_string(img, lang='eng+spa')
+        return text
+    except pytesseract.TesseractNotFoundError:
+        print("Error: Tesseract no está instalado o no se encuentra en el PATH.")
+        print("Asegúrate de que 'tesseract-ocr' esté instalado en tu Codespace.")
+        return None
+    except Exception as e:
+        print(f"Ocurrió un error durante el OCR: {e}")
+        return None
 
-# French text image to string
-print(pytesseract.image_to_string(Image.open('test-european.jpg'), lang='fra'))
+if __name__ == "__main__":
+    # Crea una imagen de prueba simple (o usa una existente)
+    # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
+    # Por ejemplo, una imagen llamada 'test_image.png'
+    test_image_path = "test_image.png"
 
-# Batch processing with a single file containing the list of multiple image file paths
-print(pytesseract.image_to_string('images.txt'))
+    # Aquí crearíamos una imagen muy simple para fines de ejemplo si no tienes una.
+    # En un escenario real, tendrías tus propias imágenes.
+    try:
+        test_image = Image.new('RGB', (200, 50), color = (255, 255, 255))
+        from PIL import ImageDraw, ImageFont
+        d = ImageDraw.Draw(test_image)
+        # Puedes necesitar especificar una fuente si tienes problemas.
+        # Por ejemplo, font = ImageFont.truetype("arial.ttf", 20) si Arial está disponible.
+        d.text((10,10), "Hello World!", fill=(0,0,0))
+        d.text((10,30), "Hola Mundo!", fill=(0,0,0))
+        test_image.save(test_image_path)
+        print(f"Imagen de prueba '{test_image_path}' creada.")
+    except ImportError:
+        print("Advertencia: Pillow parece no estar completamente instalada para dibujar texto. Necesitarás una imagen de prueba existente.")
+        print(f"Por favor, añade una imagen llamada '{test_image_path}' a tu repositorio para probar.")
 
-# Timeout/terminate the tesseract job after a period of time
-try:
-    print(pytesseract.image_to_string('test.jpg', timeout=2)) # Timeout after 2 seconds
-    print(pytesseract.image_to_string('test.jpg', timeout=0.5)) # Timeout after half a second
-except RuntimeError as timeout_error:
-    # Tesseract processing is terminated
-    pass
+    # Ejecuta el OCR
+    extracted_text = perform_ocr(test_image_path)
 
-# Get bounding box estimates
-print(pytesseract.image_to_boxes(Image.open('test.png')))
-
-# Get verbose data including boxes, confidences, line and page numbers
-print(pytesseract.image_to_data(Image.open('test.png')))
-
-# Get information about orientation and script detection
-print(pytesseract.image_to_osd(Image.open('test.png')))
-
-# Get a searchable PDF
-pdf = pytesseract.image_to_pdf_or_hocr('test.png', extension='pdf')
-with open('test.pdf', 'w+b') as f:
-    f.write(pdf) # pdf type is bytes by default
-
-# Get HOCR output
-hocr = pytesseract.image_to_pdf_or_hocr('test.png', extension='hocr')
-
-# Get ALTO XML output
-xml = pytesseract.image_to_alto_xml('test.png')
-
-# getting multiple types of output with one call to save compute time
-# currently supports mix and match of the following: txt, pdf, hocr, box, tsv
-text, boxes = pytesseract.run_and_get_multiple_output('test.png', extensions=['txt', 'box'])
+    if extracted_text:
+        print("\n--- Texto Extraído ---")
+        print(extracted_text)
+    else:
+        print("\nNo se pudo extraer texto.")++
