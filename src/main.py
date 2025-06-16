@@ -52,10 +52,11 @@ if __name__ == "__main__":
     # Crea una imagen de prueba simple (o usa una existente)
     # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
     # Por ejemplo, una imagen llamada 'test_image.png'
-    test_image_path = "tests/data/patatas.png"
+    test_image_path = "tests/data/patatas2.jpg"
 
     # Ejecuta el OCR
     extracted_text = perform_ocr(test_image_path)
+    print(extracted_text)
 
     for aceite, patron in nombres_aceites.items():
         if re.search(patron, extracted_text.lower()):
