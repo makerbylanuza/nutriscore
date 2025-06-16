@@ -38,23 +38,7 @@ if __name__ == "__main__":
     # Crea una imagen de prueba simple (o usa una existente)
     # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
     # Por ejemplo, una imagen llamada 'test_image.png'
-    test_image_path = "test_image.png"
-
-    # Aquí crearíamos una imagen muy simple para fines de ejemplo si no tienes una.
-    # En un escenario real, tendrías tus propias imágenes.
-    try:
-        test_image = Image.new('RGB', (200, 50), color = (255, 255, 255))
-        from PIL import ImageDraw, ImageFont
-        d = ImageDraw.Draw(test_image)
-        # Puedes necesitar especificar una fuente si tienes problemas.
-        # Por ejemplo, font = ImageFont.truetype("arial.ttf", 20) si Arial está disponible.
-        d.text((10,10), "Hello World!", fill=(0,0,0))
-        d.text((10,30), "Hola Mundo!", fill=(0,0,0))
-        test_image.save(test_image_path)
-        print(f"Imagen de prueba '{test_image_path}' creada.")
-    except ImportError:
-        print("Advertencia: Pillow parece no estar completamente instalada para dibujar texto. Necesitarás una imagen de prueba existente.")
-        print(f"Por favor, añade una imagen llamada '{test_image_path}' a tu repositorio para probar.")
+    test_image_path = "test.jpg"
 
     # Ejecuta el OCR
     extracted_text = perform_ocr(test_image_path)
