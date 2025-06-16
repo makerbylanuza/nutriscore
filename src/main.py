@@ -24,7 +24,7 @@ def perform_ocr(image_path):
 
         # Realizar OCR
         # lang='eng+spa' le dice a Tesseract que use datos de idioma inglés y español
-        text = pytesseract.image_to_data(img, lang='eng+spa')
+        text = pytesseract.image_to_string(img, lang='eng+spa')
         return text
     except pytesseract.TesseractNotFoundError:
         print("Error: Tesseract no está instalado o no se encuentra en el PATH.")
