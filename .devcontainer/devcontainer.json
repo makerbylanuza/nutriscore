@@ -1,13 +1,12 @@
 // .devcontainer/devcontainer.json
 {
   "name": "PyTesseract OCR Project",
-  "image": "mcr.microsoft.com/devcontainers/python:0-3.9",
-  "features": {
-    "ghcr.io/devcontainers/features/apt:1": {
-      "packages": "tesseract-ocr tesseract-ocr-eng tesseract-ocr-spa"
-    }
-  },
-  "postCreateCommand": "python -m pip install -r requirements.txt",
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.9", // Mantén la imagen de Python
+  // Elimina completamente la sección "features"
+
+  // Añade los comandos de instalación de Tesseract aquí:
+  "postCreateCommand": "sudo apt update && sudo apt install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-spa && python -m pip install -r requirements.txt",
+
   "customizations": {
     "vscode": {
       "extensions": [
