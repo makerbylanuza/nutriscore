@@ -8,7 +8,7 @@ nombres_aceites = {
     "aceite de palma": r"aceite de palma",
     "aceite de girasol": r"aceite de girasol",
     "aceite de colza": r"aceite de colza",
-    "aceite de soja": r"aceite de soja",
+    "aceite de soja": r"aceite de soja|aceite de soya",
     "aceite de maíz": r"aceite de maíz",
     "aceite de sésamo": r"aceite de sésamo",
 }
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     # Crea una imagen de prueba simple (o usa una existente)
     # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
     # Por ejemplo, una imagen llamada 'test_image.png'
-    test_image_path = "margarina.jpg"
+    test_image_path = "tests/data/margarina.jpg"
 
     # Ejecuta el OCR
     extracted_text = perform_ocr(test_image_path)
