@@ -10,7 +10,7 @@ ingredientes_buscados = {
     "aceite de girasol": r"aceite de girasol|aceite de maravilla|aceite de semilla de girasol|helianthus annus",
     "aceite de colza": r"aceite de colza|aceite de nabina|aceite de canola|brassica napus",
     "aceite de soja": r"aceite de soja|aceite de soya|glycine soya oil|óleo de soja|óleo de soya",
-    "aceite de maíz": r"aceite de maíz|aceite de rgano de maíz|aceite de zea mays",
+    "aceite de maíz": r"aceite de maíz|aceite de grano de maíz|aceite de zea mays",
     "aceite de sésamo": r"aceite de sésamo|aceite de ajonjolí|aceite de benina|nallennai",
     
     # Azúcares y edulcorantes
@@ -24,8 +24,20 @@ ingredientes_buscados = {
     # Colorantes
     "azorrubina": r"azorrubina|carmoisina|E-122|E 122|E122|rojo 3|rojo ácido 14|brillantcarmoisin o",
     "sacarina": r"sacarina|E954|E-954|E 954",
-    "índigo carmín": r"índigo carmín|indigo carmin|índigo carmin|indigo carmín|",
-    
+    "índigo carmín": r"índigo carmín|indigo carmin|índigo carmin|indigo carmín|carmín de índigo|carmin de indigo|carmín de indigo|carmin de índigo|azul índigo|azul indigo|azul ácido 74|indigotina|indigotindisulfonato sódico|ácido 5,5'-indigosulfónico sal disódic",
+    "verde s": r"verde s|verde ácido|verde lisamina|E142|E-142|E 142",
+    "negro brillante": r"negro brillante|E151|E-151|E 151|negro bn|brilliant black|food black 1",
+
+    # Conservantes y antioxidantes
+    "nitratos": r"nitrato|nitratos|E-251|E 251|E251|E-252|E 252|E252",
+    "nitritos": r"nitrito|nitritos|E-249|E 249|E249|E-250|E 250|E250",
+    "sulfatos": r"sulfato|sulfatos|E-514|E 514|E514",
+    "sulfitos": r"sulfito|sulfitos|E-220|E 220|E220|E-221|E 221|E221|E-222|E 222|E222|E-223|E 223|E223|E-224|E 224|E224|E-225|E 225|E225|E-226|E 226|E226|E-227|E 227|E227|E-228|E 228|E228",
+    "ácido benzoico": r"acido benzoico|ácido benzoico|E-210|E 210|E210",
+    "hidroxibenzoato de metilo sódico": r"hidroxibenzoato de metilo sódico|metilparabeno de sodio|E-219|E 219|E219",
+    "benzoato de sodio": r"benzoato de sodio|E-211|E 211|E211",
+    "butilhidroxianisol": r"butilhidroxianisol|bha|E-320|E 320|E320",
+    "butilhidroxitolueno": r"butilhidroxitolueno|bht|E-321|E 321|E321",
 }
 
 contiene_ingredientes = {
