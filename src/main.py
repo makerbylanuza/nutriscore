@@ -21,6 +21,11 @@ ingredientes_buscados = {
     "acesulfamo-k": r"acesulfamo k|acesulfamo-k|ace k|ace-k|acesulfamo de potasio|acesulfamo potásico|acesulfame k|acesulfame-k|E950|E-950|E 950",
     "ciclamato": r"ciclamato|ciclohexilsulfamato|sodium cyclamate|E952|E-952|E 952",
     
+    # Colorantes
+    "azorrubina": r"azorrubina|carmoisina|E-122|E 122|E122|rojo 3|rojo ácido 14|brillantcarmoisin o",
+    "sacarina": r"sacarina|E954|E-954|E 954",
+    "índigo carmín": r"índigo carmín|indigo carmin|índigo carmin|indigo carmín|",
+    
 }
 
 contiene_ingredientes = {
