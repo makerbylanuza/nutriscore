@@ -4,7 +4,7 @@ import pytesseract
 import os
 import re
 
-ingredientes_buscados = {
+ingredientes_negativos_nombres = {
     # Aceites de semilla
     "aceite de palma": r"aceite de palma|aceite de palmiste|grasa de palma|grasa vegetal (palma)|grasa vegetal fraccionada e hidrogenada de palmiste|estearina de palma|palmoleina|oleina de palma|manteca de palma|elaeis guineensis",
     "aceite de girasol": r"aceite de girasol|aceite de maravilla|aceite de semilla de girasol|helianthus annus",
@@ -38,9 +38,27 @@ ingredientes_buscados = {
     "benzoato de sodio": r"benzoato de sodio|E-211|E 211|E211",
     "butilhidroxianisol": r"butilhidroxianisol|bha|E-320|E 320|E320",
     "butilhidroxitolueno": r"butilhidroxitolueno|bht|E-321|E 321|E321",
+
+    # Otros
+    "grasas trans": r"trans|hidrogenadas|hydrogenated",
 }
 
-contiene_ingredientes = {
+ingredientes_negativos_contenidos = {
+
+}
+
+ingredientes_positivos_nombres = {
+    "stevia": r"stevia|esteviósido|esteviosido|rebaudiósido a|rebaudiosido a|rebaudiósido m|rebaudiosido m|dulcósido|dulcosido|esteviolbiósido|esteviolbiosido|E960|E-960|E 960",
+    "eritritol": r"eritritol|eritrita|tetrahidroxibutano|alcohol de azúcar|alcohol de azucar|E968|E-968|E 968",
+    "miel": r"miel|honey",
+    "canela": r"canela|cinnamon|cinnamomum",
+    "frutos secos": r"frutos secos|nuts",
+    "avena": r"avena|oats|oatmeal",
+    "aceite de oliva virgen extra": r"aceite de oliva virgen extra|aove|evoo|zumo de aceituna",
+    "vinagre de manzana": r"vinagre de manzana",
+}
+
+ingredientes_positivos_contenidos = {
 
 }
 
@@ -79,14 +97,24 @@ if __name__ == "__main__":
     # Crea una imagen de prueba simple (o usa una existente)
     # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
     # Por ejemplo, una imagen llamada 'test_image.png'
-    test_image_path = input("imagen: ")
+    test_image_path = "tests/data/" + input("imagen: ")
 
     # Ejecuta el OCR
     extracted_text = perform_ocr(test_image_path)
     print(extracted_text)
 
-    for ingrediente, patron in ingredientes_buscados.items():
+    # Busca ingredientes negativos
+    ingredientes_negativos_contenidos.clear()
+    for ingrediente, patron in ingredientes_negativos_nombres.items():
         if re.search(patron, extracted_text.lower()):
-            print(f"¡Se encontró '{ingrediente}' en los ingredientes!")
+            ingredientes_negativos_contenidos[ingrediente] = True
         else:
-            print(f"'{ingrediente}' no encontrado.")
+            ingredientes_negativos_contenidos[ingrediente] = False
+
+    # Busca ingredientes positivos
+    ingredientes_positivos_contenidos.clear()
+    for ingrediente, patron in ingredientes_positivos_nombres.items():
+        if re.search(patron, extracted_text.lower()):
+            ingredientes_positivos_contenidos[ingrediente] = True
+        else:
+            ingredientes_positivos_contenidos[ingrediente] = False
