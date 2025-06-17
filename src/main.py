@@ -18,7 +18,7 @@ ingredientes_buscados = {
     "sucralosa": r"sucralosa|E955|E-955|E 955",
     "sacarina": r"sacarina|E954|E-954|E 954",
     "aspartamo": r"aspartamo|E951|E-951|E 951",
-    "acesulfamo-k": r"acesulfamo k|acesulfamo-k|ace k|ace-k|acesulfamo de potasio|acesulfame k|acesulfame-k|E950|E-950|E 950",
+    "acesulfamo-k": r"acesulfamo k|acesulfamo-k|ace k|ace-k|acesulfamo de potasio|acesulfamo potásico|acesulfame k|acesulfame-k|E950|E-950|E 950",
     "ciclamato": r"ciclamato|ciclohexilsulfamato|sodium cyclamate|E952|E-952|E 952",
     
 }
