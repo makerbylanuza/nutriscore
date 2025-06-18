@@ -335,6 +335,7 @@ if __name__ == "__main__":
     
     # Busca valores nutricionales
     valores_nutricionales = parse_nutritional_info(extracted_text)
+    print(valores_nutricionales)
 
     print(calculate_score())
 
