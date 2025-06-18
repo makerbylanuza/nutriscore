@@ -158,11 +158,11 @@ def parse_nutritional_info(text):
               Los valores serán la cantidad encontrada (como float) o None si no se detecta.
     """
     nutritional_data = {
-        "Sal": None,
-        "Grasas insaturadas": None,
-        "Proteína": None,
-        "Fibra": None,
-        "Azúcares": None
+        "Sal": "",
+        "Grasas insaturadas": "",
+        "Proteína": "",
+        "Fibra": "",
+        "Azúcares": ""
     }
 
     # Patrones de expresiones regulares (insensibles a mayúsculas/minúsculas)
@@ -277,7 +277,7 @@ def parse_nutritional_info(text):
     if isinstance(unsaturated_fats, float):
         nutritional_data["Grasas insaturadas"] = round(unsaturated_fats, 2)
     else:
-        nutritional_data["Grasas insaturadas"] = None
+        nutritional_data["Grasas insaturadas"] = ""
 
     return nutritional_data
 
@@ -293,15 +293,17 @@ def calculate_score():
             score += puntuaciones[i]
     
     # Sumar o restar según valores nutricionales
-    if valores_nutricionales["Sal"] < 0.3:
-        score += 2
-    elif valores_nutricionales["Sal"] > 1.5:
-        score -= 2
+    if type(valores_nutricionales["Sal"]) == float:
+        if valores_nutricionales["Sal"] < 0.3:
+            score += 2
+        elif valores_nutricionales["Sal"] > 1.5:
+            score -= 2
 
-    if valores_nutricionales["Grasas insaturadas"] >= 3 and valores_nutricionales["Grasas insaturadas"] <= 6:
-        score += 2
-    elif valores_nutricionales["Grasas insaturadas"] > 6:
-        score += 4
+    if type(valores_nutricionales["Grasas insaturadas"]) == float:
+        if valores_nutricionales["Grasas insaturadas"] >= 3 and valores_nutricionales["Grasas insaturadas"] <= 6:
+            score += 2
+        elif valores_nutricionales["Grasas insaturadas"] > 6:
+            score += 4
     
     # AQUI AUN HAY CODIGO POR ESCRIBIR
 
