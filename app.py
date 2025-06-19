@@ -221,7 +221,7 @@ def parse_nutritional_info(text):
             elif unit == 'g':
                 nutritional_data["Sal"] = float(quantity_str)
         except ValueError:
-            return f"Error al analizar la sal", 500
+            pass
 
     # Azúcares
     sugars_match = re.search(sugars_pattern, text, re.IGNORECASE)
@@ -416,7 +416,7 @@ def procesar():
     try:
         resultado = analizar(texto_analizar)
     except Exception as e:
-        return f"Error al analizar el texto: {str(e)}", 500
+        return f"Error al analizar el texto: {type(e)}", 500
 
     return render_template('resultado.html', resultado=resultado)
 
