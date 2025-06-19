@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutriscore OCR</title>
+</head>
+<body>
+    <h1>Sube una imagen o escribe texto para analizar</h1>
+    <form action="/procesar" method="POST" enctype="multipart/form-data">
+        <label>Imagen (foto o captura):</label><br>
+        <input type="file" name="imagen" accept="image/*" capture="camera"><br><br>
+        <label>O texto:</label><br>
+        <textarea name="texto" rows="6" cols="50"></textarea><br><br>
+        <button type="submit">Procesar</button>
+    </form>
+</body>
+</html>

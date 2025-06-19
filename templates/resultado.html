@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado Nutricional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 1em;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .puntuacion {
+            font-size: 2.5em;
+            text-align: center;
+            margin: 1em 0;
+            padding: 0.5em 1em;
+            border-radius: 10px;
+            display: inline-block;
+            color: white;
+        }
+
+        .score-bajo {
+            background-color: #28a745; /* Verde */
+        }
+
+        .score-medio {
+            background-color: #ffc107; /* Amarillo */
+        }
+
+        .score-alto {
+            background-color: #dc3545; /* Rojo */
+        }
+
+        table {
+            width: 100%;
+            margin-top: 1em;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 0.8em;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .avisos {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 1em;
+            border-radius: 10px;
+            margin-top: 2em;
+        }
+
+        .volver {
+            margin-top: 2em;
+            text-align: center;
+        }
+
+        .volver a {
+            padding: 0.7em 1.2em;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Resultado Nutricional</h1>
+
+    <h2>Puntuación total</h2>
+    {% set score_class = "score-bajo" %}
+    {% if resultado.puntuacion >= 10 %}
+        {% set score_class = "score-alto" %}
+    {% elif resultado.puntuacion >= 0 %}
+        {% set score_class = "score-medio" %}
+    {% endif %}
+
+    <div class="puntuacion {{ score_class }}">
+        {{ resultado.puntuacion }}
+    </div>
+
+    <h2>Valores Nutricionales</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nutriente</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for clave, valor in resultado.valores.items() %}
+            <tr>
+                <td>{{ clave }}</td>
+                <td>{{ valor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if resultado.avisos %}
+    <div class="avisos">
+        <h2>Avisos</h2>
+        <ul>
+            {% for aviso in resultado.avisos %}
+            <li>{{ aviso }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="volver">
+        <a href="/">Volver</a>
+    </div>
+
+</body>
+</html>
