@@ -321,14 +321,13 @@ def parse_nutritional_info(text):
 
     return nutritional_data
 
-def calculate_score():
+def calculate_score(avisos):
     score = 0
-    avisos = []
     # Suma o resta según si lleva los ingredientes
     for i in ingredientes_negativos_contenidos:
         if ingredientes_negativos_contenidos[i] == True:
             score += puntuaciones[i]
-            avisos.append(avisos_nombres[i])
+            avisos.append(avisos_textos[i])
 
     for i in ingredientes_positivos_contenidos:
         if ingredientes_positivos_contenidos[i] == True:
@@ -414,7 +413,7 @@ if __name__ == "__main__":
         print(i + ": " + str(valores_nutricionales[i]) + " g")
 
     print()
-    print("Puntuación: " + str(calculate_score()))
+    print("Puntuación: " + str(calculate_score(avisos)))
     print("Nota: La puntuación normal para un producto procesado es de alrededor de -10")
 
     if len(avisos) != 0:
@@ -424,4 +423,4 @@ if __name__ == "__main__":
             print()
             print(i)
 
-    
+    print()
