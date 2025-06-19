@@ -377,14 +377,8 @@ def analizar(extracted_text):
             ingredientes_positivos_contenidos[ingrediente] = False
     
     # Busca valores nutricionales y calcula puntuación
-    try:
-        valores_nutricionales = parse_nutritional_info(extracted_text)
-    except Exception as e:
-        return f"Error al calcular valores: {str(e)}", 400
-    try:
-        puntos = calculate_score(avisos)
-    except Exception as e:
-        return f"Error al calcular puntos: {str(e)}", 400
+    valores_nutricionales = parse_nutritional_info(extracted_text)
+    puntos = calculate_score(avisos)
     
     resultado = {
         "valores": valores_nutricionales,
