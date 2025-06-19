@@ -415,7 +415,7 @@ def procesar():
 
     try:
         resultado = analizar(texto_analizar)
-    except Exception as e:
+    except ValueError as e:
         return f"Error al analizar el texto: {e}", 500
 
     return render_template('resultado.html', resultado=resultado)
