@@ -152,26 +152,19 @@ avisos_textos = {
 }
 
 # Funciones
-def perform_ocr(image_path):
+def perform_ocr(file_storage):
     """
-    Realiza OCR en una imagen dada y devuelve el texto extraído.
+    Realiza OCR en una imagen dada (FileStorage) y devuelve el texto extraído.
     """
-    if not os.path.exists(image_path):
-        print(f"Error: La imagen '{image_path}' no se encontró.")
-        return None
-
     try:
-        # Abrir la imagen
-        img = Image.open(image_path.stream)
-        print(f"Imagen '{image_path}' cargada con éxito.")
+        img = Image.open(file_storage.stream)  # 👈 esto ya es correcto
+        print(f"Imagen '{file_storage.filename}' cargada con éxito.")
 
-        # Realizar OCR
-        # lang='eng+spa' le dice a Tesseract que use datos de idioma inglés y español
         text = pytesseract.image_to_string(img, lang='eng+spa')
         return text
+
     except pytesseract.TesseractNotFoundError:
         print("Error: Tesseract no está instalado o no se encuentra en el PATH.")
-        print("Asegúrate de que 'tesseract-ocr' esté instalado en tu Codespace.")
         return None
     except Exception as e:
         print(f"Ocurrió un error durante el OCR: {e}")
