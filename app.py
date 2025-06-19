@@ -410,6 +410,7 @@ def procesar():
             return f"Error al procesar imagen: {str(e)}", 400
     elif texto_entrada:
         texto_analizar = texto_entrada
+        return texto_analizar
     else:
         return "No se subió imagen ni se ingresó texto.", 400
 
