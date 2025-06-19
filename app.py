@@ -358,36 +358,6 @@ def calculate_score(avisos):
         
     return score
 
-def analizar(extracted_text):    
-    
-    # Busca ingredientes negativos
-    ingredientes_negativos_contenidos.clear()
-    for ingrediente, patron in ingredientes_negativos_nombres.items():
-        if re.search(patron, extracted_text.lower()):
-            ingredientes_negativos_contenidos[ingrediente] = True
-        else:
-            ingredientes_negativos_contenidos[ingrediente] = False
-    
-    # Busca ingredientes positivos
-    ingredientes_positivos_contenidos.clear()
-    for ingrediente, patron in ingredientes_positivos_nombres.items():
-        if re.search(patron, extracted_text.lower()):
-            ingredientes_positivos_contenidos[ingrediente] = True
-        else:
-            ingredientes_positivos_contenidos[ingrediente] = False
-    
-    # Busca valores nutricionales y calcula puntuación
-    valores_nutricionales = parse_nutritional_info(extracted_text)
-    puntos = calculate_score(avisos)
-    
-    resultado = {
-        "valores": valores_nutricionales,
-        "puntuacion": puntos,
-        "avisos": avisos
-    }
-    
-    return resultado
-
 avisos = []
 
 app = Flask(__name__)
@@ -414,9 +384,34 @@ def procesar():
         return "No se subió imagen ni se ingresó texto.", 400
 
     try:
-        resultado = analizar(texto_analizar)
-    except ValueError as e:
-        return f"Error al analizar el texto: {type(e)}, {e}", 500
+        # Busca ingredientes negativos
+        ingredientes_negativos_contenidos.clear()
+        for ingrediente, patron in ingredientes_negativos_nombres.items():
+            if re.search(patron, texto_analizar.lower()):
+                ingredientes_negativos_contenidos[ingrediente] = True
+            else:
+                ingredientes_negativos_contenidos[ingrediente] = False
+        
+        # Busca ingredientes positivos
+        ingredientes_positivos_contenidos.clear()
+        for ingrediente, patron in ingredientes_positivos_nombres.items():
+            if re.search(patron, texto_analizar.lower()):
+                ingredientes_positivos_contenidos[ingrediente] = True
+            else:
+                ingredientes_positivos_contenidos[ingrediente] = False
+        
+        # Busca valores nutricionales y calcula puntuación
+        valores_nutricionales = parse_nutritional_info(texto_analizar)
+        puntos = calculate_score(avisos)
+        
+        resultado = {
+            "valores": valores_nutricionales,
+            "puntuacion": puntos,
+            "avisos": avisos
+        }
+        
+    except Exception as e:
+        return f"Error al analizar el texto: {str(e)}", 500
 
     return render_template('resultado.html', resultado=resultado)
 
