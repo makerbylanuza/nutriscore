@@ -221,7 +221,7 @@ def parse_nutritional_info(text):
             elif unit == 'g':
                 nutritional_data["Sal"] = float(quantity_str)
         except ValueError:
-            pass  # Keep as empty string if conversion fails
+            return "Error al calcular la sal"
 
     # Azúcares
     sugars_match = re.search(sugars_pattern, text, re.IGNORECASE)
