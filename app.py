@@ -377,8 +377,14 @@ def analizar(extracted_text):
             ingredientes_positivos_contenidos[ingrediente] = False
     
     # Busca valores nutricionales y calcula puntuación
-    valores_nutricionales = parse_nutritional_info(extracted_text)
-    puntos = calculate_score(avisos)
+    try:
+        valores_nutricionales = parse_nutritional_info(extracted_text)
+    except Exception as e:
+        return f"Error al calcular valores: {str(e)}", 400
+    try:
+        puntos = calculate_score(avisos)
+    except Exception as e:
+        return f"Error al calcular puntos: {str(e)}", 400
     
     resultado = {
         "valores": valores_nutricionales,
@@ -410,7 +416,6 @@ def procesar():
             return f"Error al procesar imagen: {str(e)}", 400
     elif texto_entrada:
         texto_analizar = texto_entrada
-        return texto_analizar
     else:
         return "No se subió imagen ni se ingresó texto.", 400
 
