@@ -15,28 +15,28 @@ ingredientes_negativos_nombres = {
     
     # Azúcares y edulcorantes
     "jarabe de glucosa": r"jarabe de glucosa|jarabe de fructosa|jarabe de maíz|jarabe de glucosa y fructosa|jarabe de glucosa-fructosa|glucosa|fructosa|dextrosa|jarabe de maíz de alta fructosa",
-    "sucralosa": r"sucralosa|E955|E-955|E 955",
-    "sacarina": r"sacarina|E954|E-954|E 954",
-    "aspartamo": r"aspartamo|E951|E-951|E 951",
-    "acesulfamo-k": r"acesulfamo k|acesulfamo-k|ace k|ace-k|acesulfamo de potasio|acesulfamo potásico|acesulfame k|acesulfame-k|E950|E-950|E 950",
-    "ciclamato": r"ciclamato|ciclohexilsulfamato|sodium cyclamate|E952|E-952|E 952",
+    "sucralosa": r"sucralosa|e955|e-955|e 955",
+    "sacarina": r"sacarina|e954|e-954|e 954",
+    "aspartamo": r"aspartamo|e951|e-951|e 951",
+    "acesulfamo-k": r"acesulfamo k|acesulfamo-k|ace k|ace-k|acesulfamo de potasio|acesulfamo potásico|acesulfame k|acesulfame-k|e950|e-950|e 950",
+    "ciclamato": r"ciclamato|ciclohexilsulfamato|sodium cyclamate|e952|e-952|e 952",
     
     # Colorantes
-    "azorrubina": r"azorrubina|carmoisina|E-122|E 122|E122|rojo 3|rojo ácido 14|brillantcarmoisin o",
+    "azorrubina": r"azorrubina|carmoisina|e-122|e 122|e122|rojo 3|rojo ácido 14|brillantcarmoisin o",
     "índigo carmín": r"índigo carmín|indigo carmin|índigo carmin|indigo carmín|carmín de índigo|carmin de indigo|carmín de indigo|carmin de índigo|azul índigo|azul indigo|azul ácido 74|indigotina|indigotindisulfonato sódico|ácido 5,5'-indigosulfónico sal disódic",
-    "verde s": r"verde s|verde ácido|verde lisamina|E142|E-142|E 142",
-    "negro brillante": r"negro brillante|E151|E-151|E 151|negro bn|brilliant black|food black 1",
+    "verde s": r"verde s|verde ácido|verde lisamina|e142|e-142|e 142",
+    "negro brillante": r"negro brillante|e151|e-151|e 151|negro bn|brilliant black|food black 1",
 
     # Conservantes y antioxidantes
-    "nitratos": r"nitrato|nitratos|E-251|E 251|E251|E-252|E 252|E252",
-    "nitritos": r"nitrito|nitritos|E-249|E 249|E249|E-250|E 250|E250",
-    "sulfatos": r"sulfato|sulfatos|E-514|E 514|E514",
-    "sulfitos": r"sulfito|sulfitos|E-220|E 220|E220|E-221|E 221|E221|E-222|E 222|E222|E-223|E 223|E223|E-224|E 224|E224|E-225|E 225|E225|E-226|E 226|E226|E-227|E 227|E227|E-228|E 228|E228",
-    "ácido benzoico": r"acido benzoico|ácido benzoico|E-210|E 210|E210",
-    "hidroxibenzoato de metilo sódico": r"hidroxibenzoato de metilo sódico|metilparabeno de sodio|E-219|E 219|E219",
-    "benzoato de sodio": r"benzoato de sodio|E-211|E 211|E211",
-    "butilhidroxianisol": r"butilhidroxianisol|bha|E-320|E 320|E320",
-    "butilhidroxitolueno": r"butilhidroxitolueno|bht|E-321|E 321|E321",
+    "nitratos": r"nitrato|nitratos|e-251|e 251|e251|e-252|e 252|e252",
+    "nitritos": r"nitrito|nitritos|e-249|e 249|e249|e-250|e 250|e250",
+    "sulfatos": r"sulfato|sulfatos|e-514|e 514|e514",
+    "sulfitos": r"sulfito|sulfitos|e-220|e 220|e220|e-221|e 221|e221|e-222|e 222|e222|e-223|e 223|e223|e-224|e 224|e224|e-225|e 225|e225|e-226|e 226|e226|e-227|e 227|e227|e-228|e 228|e228",
+    "ácido benzoico": r"acido benzoico|ácido benzoico|e-210|e 210|e210",
+    "hidroxibenzoato de metilo sódico": r"hidroxibenzoato de metilo sódico|metilparabeno de sodio|e-219|e 219|e219",
+    "benzoato de sodio": r"benzoato de sodio|e-211|e 211|e211",
+    "butilhidroxianisol": r"butilhidroxianisol|bha|e-320|e 320|e320",
+    "butilhidroxitolueno": r"butilhidroxitolueno|bht|e-321|e 321|e321",
 
     # Otros
     "grasas trans": r"trans|hidrogenadas|hydrogenated",
@@ -47,8 +47,8 @@ ingredientes_negativos_contenidos = {
 }
 
 ingredientes_positivos_nombres = {
-    "stevia": r"stevia|esteviósido|esteviosido|rebaudiósido a|rebaudiosido a|rebaudiósido m|rebaudiosido m|dulcósido|dulcosido|esteviolbiósido|esteviolbiosido|E960|E-960|E 960",
-    "eritritol": r"eritritol|eritrita|tetrahidroxibutano|alcohol de azúcar|alcohol de azucar|E968|E-968|E 968",
+    "stevia": r"stevia|esteviósido|esteviosido|rebaudiósido a|rebaudiosido a|rebaudiósido m|rebaudiosido m|dulcósido|dulcosido|esteviolbiósido|esteviolbiosido|e960|e-960|e 960",
+    "eritritol": r"eritritol|eritrita|tetrahidroxibutano|alcohol de azúcar|alcohol de azucar|e968|e-968|e 968",
     "miel": r"miel|honey",
     "canela": r"canela|cinnamon|cinnamomum",
     "frutos secos": r"frutos secos|nuts",
@@ -185,18 +185,6 @@ def perform_ocr(image_path):
         return None
 
 def parse_nutritional_info(text):
-    """
-    Extrae la información nutricional (sal, grasas insaturadas, proteína, fibra y azúcares)
-    de un texto dado.
-
-    Args:
-        text (str): El texto que contiene la declaración nutrimental.
-
-    Returns:
-        dict: Un diccionario con las cantidades de sal, grasas insaturadas, proteína, fibra y azúcares.
-              Las claves serán 'Sal', 'Grasas insaturadas', 'Proteína', 'Fibra' y 'Azúcares'.
-              Los valores serán la cantidad encontrada (como float) o None si no se detecta.
-    """
     nutritional_data = {
         "Sal": "",
         "Grasas insaturadas": "",
@@ -207,7 +195,7 @@ def parse_nutritional_info(text):
 
     # Patrones de expresiones regulares (insensibles a mayúsculas/minúsculas)
     # --- SAL ---
-    salt_pattern = r"(?:Sal|Sodio)\s*([\d,\.]+)\s*(mg|g)?"
+    salt_pattern = r"(?:Sal|Sodio)\s*[:\-]?\s*(\d+(?:[.,]\d+)?)\s*(mg|g)?"
 
     # --- GRASAS ---
     total_fats_pattern = r"(?:Grasa(?:s)?\s*totales|Grasa(?:s)?)\s*([\d,\.]+)\s*g"
@@ -225,13 +213,12 @@ def parse_nutritional_info(text):
     # --- AZÚCARES ---
     sugars_pattern = r"Az[uú]car(?:es)?\s*([\d,\.]+)\s*g"
 
-
     # --- Extracción de valores ---
 
     # Sal
     salt_match = re.search(salt_pattern, text, re.IGNORECASE)
     if salt_match:
-        quantity_str = salt_match.group(1).replace(',', '.')
+        quantity_str = salt_match.group(1).replace(',', '.').strip()
         unit = salt_match.group(2).lower() if salt_match.group(2) else 'g'
         try:
             if unit == 'mg':
@@ -241,7 +228,7 @@ def parse_nutritional_info(text):
             elif unit == 'g':
                 nutritional_data["Sal"] = float(quantity_str)
         except ValueError:
-            pass # Keep as None if conversion fails
+            pass  # Keep as empty string if conversion fails
 
     # Azúcares
     sugars_match = re.search(sugars_pattern, text, re.IGNORECASE)
@@ -297,7 +284,7 @@ def parse_nutritional_info(text):
 
         if mono_fats_match or poly_fats_match:
             unsaturated_fats = mono_val + poly_val
-            if unsaturated_fats < 0: # Ensure non-negative
+            if unsaturated_fats < 0:  # Ensure non-negative
                 unsaturated_fats = None
 
     if unsaturated_fats is None:
@@ -382,13 +369,17 @@ if __name__ == "__main__":
     # Crea una imagen de prueba simple (o usa una existente)
     # Para probar, podrías tener una imagen .png o .jpg en tu repositorio
     # Por ejemplo, una imagen llamada 'test_image.png'
-    test_image_path = "tests/data/" + input("imagen: ")
+    test_image_path = "tests/data/" + input("imagen (o escribe texto para introducir el texto manualmente): ")
 
     # Ejecuta el OCR
-    extracted_text = perform_ocr(test_image_path)
-    print("Texto extraído:")
-    print()
-    print(extracted_text)
+    if not test_image_path == "tests/data/texto":
+        extracted_text = perform_ocr(test_image_path)
+        print("Texto extraído:")
+        print()
+        print(extracted_text)
+    else:
+        extracted_text = input("Introduce el texto manualmente: ")
+        print()
 
     # Busca ingredientes negativos
     ingredientes_negativos_contenidos.clear()
@@ -414,7 +405,7 @@ if __name__ == "__main__":
 
     print()
     print("Puntuación: " + str(calculate_score(avisos)))
-    print("Nota: La puntuación normal para un producto procesado es de alrededor de -10")
+    print("Nota: La puntuación normal para un producto procesado es de alrededor de -5")
 
     if len(avisos) != 0:
         print()
