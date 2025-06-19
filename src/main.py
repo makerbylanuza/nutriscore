@@ -9,7 +9,7 @@ ingredientes_negativos_nombres = {
     "aceite de palma": r"aceite de palma|aceite de palmiste|grasa de palma|grasa vegetal (palma)|grasa vegetal fraccionada e hidrogenada de palmiste|estearina de palma|palmoleina|oleina de palma|manteca de palma|elaeis guineensis",
     "aceite de girasol": r"aceite de girasol|aceite de maravilla|aceite de semilla de girasol|helianthus annus",
     "aceite de colza": r"aceite de colza|aceite de nabina|aceite de canola|brassica napus",
-    "aceite de soja": r"aceite de soja|aceite de soya|glycine soya oil|óleo de soja|óleo de soya",
+    "aceite de soja": r"aceite de soja|aceite de soya|glycine soya oil|óleo de soja|óleo de soya|aceite vegetal (soja)",
     "aceite de maíz": r"aceite de maíz|aceite de grano de maíz|aceite de zea mays",
     "aceite de sésamo": r"aceite de sésamo|aceite de ajonjolí|aceite de benina|nallennai",
     
@@ -112,6 +112,46 @@ puntuaciones = {
     "aceite de oliva virgen extra": 5,
     "vinagre de manzana": 2,
 }
+
+avisos_textos = {
+    # Aceites de semilla
+    "aceite de palma": "Los aceites de semilla refinados como el de girasol, maíz, soja o canola pueden ser perjudiciales porque contienen grandes cantidades de omega-6, lo que favorece la inflamación si se consumen en exceso. Además, son inestables al calor y, al cocinarse, generan compuestos tóxicos que pueden dañar las células. Su extracción industrial con químicos también afecta su calidad. Un estudio publicado en BMJ (Ramsden et al., 2013) mostró que un alto consumo de estos aceites puede aumentar el riesgo de enfermedades cardíacas. Se recomienda limitar su consumo y preferir grasas extraídas sin procedimientos químicos, como el aceite de oliva.",
+    "aceite de girasol": "Los aceites de semilla refinados como el de girasol, maíz, soja o canola pueden ser perjudiciales porque contienen grandes cantidades de omega-6, lo que favorece la inflamación si se consumen en exceso. Además, son inestables al calor y, al cocinarse, generan compuestos tóxicos que pueden dañar las células. Su extracción industrial con químicos también afecta su calidad. Un estudio publicado en BMJ (Ramsden et al., 2013) mostró que un alto consumo de estos aceites puede aumentar el riesgo de enfermedades cardíacas. Se recomienda limitar su consumo y preferir grasas extraídas sin procedimientos químicos, como el aceite de oliva.",
+    "aceite de colza": "Los aceites de semilla refinados como el de girasol, maíz, soja o canola pueden ser perjudiciales porque contienen grandes cantidades de omega-6, lo que favorece la inflamación si se consumen en exceso. Además, son inestables al calor y, al cocinarse, generan compuestos tóxicos que pueden dañar las células. Su extracción industrial con químicos también afecta su calidad. Un estudio publicado en BMJ (Ramsden et al., 2013) mostró que un alto consumo de estos aceites puede aumentar el riesgo de enfermedades cardíacas. Se recomienda limitar su consumo y preferir grasas extraídas sin procedimientos químicos, como el aceite de oliva.",
+    "aceite de soja": "Los aceites de semilla refinados como el de girasol, maíz, soja o canola pueden ser perjudiciales porque contienen grandes cantidades de omega-6, lo que favorece la inflamación si se consumen en exceso. Además, son inestables al calor y, al cocinarse, generan compuestos tóxicos que pueden dañar las células. Su extracción industrial con químicos también afecta su calidad. Un estudio publicado en BMJ (Ramsden et al., 2013) mostró que un alto consumo de estos aceites puede aumentar el riesgo de enfermedades cardíacas. Se recomienda limitar su consumo y preferir grasas extraídas sin procedimientos químicos, como el aceite de oliva.",
+    "aceite de maíz": "Los aceites de semilla refinados como el de girasol, maíz, soja o canola pueden ser perjudiciales porque contienen grandes cantidades de omega-6, lo que favorece la inflamación si se consumen en exceso. Además, son inestables al calor y, al cocinarse, generan compuestos tóxicos que pueden dañar las células. Su extracción industrial con químicos también afecta su calidad. Un estudio publicado en BMJ (Ramsden et al., 2013) mostró que un alto consumo de estos aceites puede aumentar el riesgo de enfermedades cardíacas. Se recomienda limitar su consumo y preferir grasas extraídas sin procedimientos químicos, como el aceite de oliva.",
+    "aceite de sésamo": "Los aceites de semilla refinados como el de girasol, maíz, soja o canola pueden ser perjudiciales porque contienen grandes cantidades de omega-6, lo que favorece la inflamación si se consumen en exceso. Además, son inestables al calor y, al cocinarse, generan compuestos tóxicos que pueden dañar las células. Su extracción industrial con químicos también afecta su calidad. Un estudio publicado en BMJ (Ramsden et al., 2013) mostró que un alto consumo de estos aceites puede aumentar el riesgo de enfermedades cardíacas. Se recomienda limitar su consumo y preferir grasas extraídas sin procedimientos químicos, como el aceite de oliva.",
+    
+    # Azúcares y edulcorantes
+    "jarabe de glucosa": "Los jarabes de glucosa y fructosa se utilizan para dar sabor dulce a los alimentos procesados, pero muchos de ellos, como la sacarosa, los jarabes de glucosa o fructosa y el jarabe de maíz de alta fructosa, son tipos de azúcares simples que el cuerpo absorbe muy rápido. Esto provoca picos de azúcar en sangre y, con el tiempo, puede aumentar el riesgo de obesidad, caries, resistencia a la insulina, diabetes tipo 2, hígado graso y enfermedades cardiovasculares. Todos estos ingredientes se usan mucho porque son baratos y realzan el sabor, pero su uso frecuente está relacionado con efectos negativos en la salud. Por eso, organizaciones como la OMS, la EFSA y la American Heart Association recomiendan limitar su consumo, especialmente en niños.",
+    "sucralosa": "La sucralosa es un edulcorante artificial sin calorías, mucho más dulce que el azúcar. Aunque no sube el azúcar en sangre, algunos estudios sugieren que podría afectar la microbiota intestinal o generar compuestos tóxicos si se calienta.",
+    "sacarina": "La sacarina es uno de los edulcorantes más antiguos. Es hasta 300 veces más dulce que el azúcar y no aporta calorías. Se puede usar hasta 9 mg por kilo de peso al día, según la EFSA. Hace años se pensaba que podía causar cáncer de vejiga en animales, pero hoy se considera segura en humanos. Aun así, en algunas personas puede causar sabor metálico o reacciones alérgicas leves.",
+    "aspartamo": "El aspartamo es un edulcorante muy usado en refrescos, chicles y productos “sin azúcar”. Es entre 150 y 200 veces más dulce que el azúcar. La EFSA (Agencia Europea de Seguridad Alimentaria) dice que se puede consumir hasta 40 mg por kilo de peso al día sin problemas. Sin embargo, hay estudios que lo relacionan con cáncer en animales, y por eso la OMS lo clasifica como posiblemente cancerígeno. Las personas con una enfermedad genética llamada fenilcetonuria no deben consumirlo, porque su cuerpo no puede procesarlo bien.",
+    "acesulfamo-k": "Este edulcorante se usa en muchos productos bajos en calorías, como postres, yogures o bebidas. No aporta calorías y es unas 200 veces más dulce que el azúcar. La cantidad máxima recomendada es de 15 mg por kilo de peso al día. Está aprobado por organizaciones como la EFSA y la FDA (Estados Unidos). No hay pruebas sólidas de que cause cáncer, pero algunos estudios recientes están investigando si puede afectar a las bacterias del intestino.",
+    "ciclamato": "El ciclamato es otro edulcorante que se usa en productos sin azúcar. Su dulzor es más suave y a veces se combina con otros edulcorantes. La cantidad máxima recomendada es de 7 mg por kilo de peso al día. Está prohibido en Estados Unidos desde hace décadas, ya que algunos estudios antiguos en animales lo relacionaron con cáncer, aunque hoy no hay pruebas claras en humanos. En Europa sigue permitido pero se usa con precaución.",
+    
+    # Colorantes
+    "azorrubina": "La azorrubina o carmoisina es un colorante rojo artificial usado en chucherías, postres y bebidas. Aunque se permite su uso, algunas personas sensibles pueden tener reacciones alérgicas, sobre todo niños con asma o intolerancia a ciertos aditivos. La cantidad máxima recomendada es de 4 mg por kilo de peso al día. Está aprobado en Europa, pero se desaconseja su uso frecuente en niños.",
+    "índigo carmín": "El índigo carmín es un colorante azul artificial que se usa en dulces, bebidas y algunos postres. En algunas personas sensibles puede causar reacciones alérgicas o problemas respiratorios. Su consumo excesivo no se recomienda, especialmente en niños.",
+    "verde s": "El Verde S es un colorante verde sintético usado en golosinas, bebidas y productos de panadería. Puede provocar reacciones alérgicas y en algunos países está prohibido por posibles efectos negativos sobre la salud, especialmente en niños.",
+    "negro brillante": "El negro brillante es un colorante negro artificial presente en caramelos, salsas o postres. Se ha relacionado con alergias y efectos negativos en personas asmáticas. Está prohibido en algunos países por preocupaciones sobre su seguridad a largo plazo.",
+
+    # Conservantes y antioxidantes
+    "nitratos": "Los nitratos y nitritos se usan como conservantes en embutidos, salchichas y carnes curadas. Ayudan a que la carne mantenga su color y evitan el crecimiento de bacterias peligrosas. El problema es que en el cuerpo pueden transformarse en nitrosaminas, sustancias que podrían aumentar el riesgo de cáncer. La cantidad máxima recomendada es de 3.7 mg/kg/día para nitratos y 0.07 mg/kg/día para nitritos. Se recomienda limitar su consumo, especialmente en niños.",
+    "nitritos": "Los nitratos y nitritos se usan como conservantes en embutidos, salchichas y carnes curadas. Ayudan a que la carne mantenga su color y evitan el crecimiento de bacterias peligrosas. El problema es que en el cuerpo pueden transformarse en nitrosaminas, sustancias que podrían aumentar el riesgo de cáncer. La cantidad máxima recomendada es de 3.7 mg/kg/día para nitratos y 0.07 mg/kg/día para nitritos. Se recomienda limitar su consumo, especialmente en niños.",
+    "sulfatos": "Los sulfitos y sulfatos son conservantes usados en alimentos como frutas secas, vinos, embutidos y productos procesados para evitar que se oxiden o fermenten. Aunque están aprobados en pequeñas cantidades, pueden causar reacciones adversas, especialmente en personas sensibles o asmáticas, como dolores de cabeza, dificultad para respirar o urticaria. Su consumo excesivo también puede alterar la microbiota intestinal. La EFSA establece una ingesta diaria aceptable (IDA) de 0.7 mg por kilo de peso corporal. Por precaución, se recomienda evitar productos con sulfitos frecuentes, sobre todo en niños y personas con alergias respiratorias.",
+    "sulfitos": "Los sulfitos y sulfatos son conservantes usados en alimentos como frutas secas, vinos, embutidos y productos procesados para evitar que se oxiden o fermenten. Aunque están aprobados en pequeñas cantidades, pueden causar reacciones adversas, especialmente en personas sensibles o asmáticas, como dolores de cabeza, dificultad para respirar o urticaria. Su consumo excesivo también puede alterar la microbiota intestinal. La EFSA establece una ingesta diaria aceptable (IDA) de 0.7 mg por kilo de peso corporal. Por precaución, se recomienda evitar productos con sulfitos frecuentes, sobre todo en niños y personas con alergias respiratorias.",
+    "ácido benzoico": "El ácido benzoico o E210 es un conservante que se usa para evitar que crezcan bacterias en refrescos, jugos y salsas. Puede causar alergias, irritación en la piel o problemas respiratorios en personas sensibles.",
+    "hidroxibenzoato de metilo sódico": "El E219 es una sal del ácido p-hidroxibenzoico, usada como conservante antimicrobiano. Puede generar reacciones alérgicas y, aunque no está del todo prohibido, su uso está muy regulado por posibles efectos hormonales.",
+    "benzoato de sodio": "El benzoato de sodio es un conservante muy común en refrescos y productos ácidos. Puede causar hiperactividad en niños y, si se mezcla con vitamina C, puede formar benceno, una sustancia potencialmente cancerígena.",
+    "butilhidroxianisol": "El butilhidroxianisol o E320 se usa para evitar que las grasas se enrancien en cereales, snacks y chicles. Está relacionado con posibles efectos cancerígenos en estudios con animales y puede afectar el sistema hormonal.",
+    "butilhidroxitolueno": "El butilhidroxitolueno o BHT es un compuesto similar al BHA, este antioxidante se encuentra en muchos productos procesados. Hay estudios que lo relacionan con alteraciones hormonales y posibles efectos negativos sobre el hígado y los riñones.",
+
+    # Otros
+    "grasas trans": -15,
+}
+
+avisos = []
 
 # --- Configuración (opcional pero recomendado) ---
 # Si Tesseract no está en tu PATH, puedes especificar su ubicación
@@ -283,10 +323,12 @@ def parse_nutritional_info(text):
 
 def calculate_score():
     score = 0
+    avisos = []
     # Suma o resta según si lleva los ingredientes
     for i in ingredientes_negativos_contenidos:
         if ingredientes_negativos_contenidos[i] == True:
             score += puntuaciones[i]
+            avisos.append(avisos_nombres[i])
 
     for i in ingredientes_positivos_contenidos:
         if ingredientes_positivos_contenidos[i] == True:
@@ -345,6 +387,8 @@ if __name__ == "__main__":
 
     # Ejecuta el OCR
     extracted_text = perform_ocr(test_image_path)
+    print("Texto extraído:")
+    print()
     print(extracted_text)
 
     # Busca ingredientes negativos
@@ -365,10 +409,19 @@ if __name__ == "__main__":
     
     # Busca valores nutricionales
     valores_nutricionales = parse_nutritional_info(extracted_text)
+    print("Valores nutricionales:")
     for i in valores_nutricionales:
         print(i + ": " + str(valores_nutricionales[i]) + " g")
 
     print()
     print("Puntuación: " + str(calculate_score()))
+    print("Nota: La puntuación normal para un producto procesado es de alrededor de -10")
+
+    if len(avisos) != 0:
+        print()
+        print("AVISOS DE INGREDIENTES CONTENIDOS:")
+        for i in avisos:
+            print()
+            print(i)
 
     
