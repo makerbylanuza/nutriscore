@@ -14,7 +14,7 @@ def perform_ocr(image_path):
 
     try:
         # Abrir la imagen
-        img = Image.open(image_path)
+        img = Image.open(image_path.stream)
         print(f"Imagen '{image_path}' cargada con éxito.")
 
         # Realizar OCR
