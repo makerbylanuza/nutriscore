@@ -381,9 +381,9 @@ def analizar(extracted_text):
     puntos = calculate_score(avisos)
     
     resultado = {
-        "Valores nutricionales": valores_nutricionales,
-        "Puntuación": puntos,
-        "Avisos": avisos
+        "valores": valores_nutricionales,
+        "puntuacion": puntos,
+        "avisos": avisos
     }
     
     return resultado
