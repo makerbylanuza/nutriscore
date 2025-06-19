@@ -305,8 +305,36 @@ def calculate_score():
         elif valores_nutricionales["Grasas insaturadas"] > 6:
             score += 4
     
-    # AQUI AUN HAY CODIGO POR ESCRIBIR
-
+    if type(valores_nutricionales["Proteína"]) == float:
+        if valores_nutricionales["Proteína"] > 20:
+            score += 5
+        elif valores_nutricionales["Proteína"] > 15 and valores_nutricionales["Proteína"] <= 20:
+            score += 4
+        elif valores_nutricionales["Proteína"] > 10 and valores_nutricionales["Proteína"] <= 15:
+            score += 3
+        elif valores_nutricionales["Proteína"] > 5 and valores_nutricionales["Proteína"] <= 10:
+            score += 2
+        elif valores_nutricionales["Proteína"] > 3 and valores_nutricionales["Proteína"] <= 5:
+            score += 1
+    
+    if type(valores_nutricionales["Fibra"]) == float:
+        if valores_nutricionales["Fibra"] > 6:
+            score += 5
+        elif valores_nutricionales["Fibra"] > 3 and valores_nutricionales["Fibra"] <= 6:
+            score += 4
+        elif valores_nutricionales["Fibra"] > 1.5 and valores_nutricionales["Fibra"] <= 3:
+            score += 1
+    
+    if type(valores_nutricionales["Azúcares"]) == float:
+        if valores_nutricionales["Azúcares"] > 22.5:
+            score -= 5
+        elif valores_nutricionales["Azúcares"] > 15 and valores_nutricionales["Azúcares"] <= 22.5:
+            score -= 4
+        elif valores_nutricionales["Azúcares"] > 10 and valores_nutricionales["Azúcares"] <= 15:
+            score -= 3
+        elif valores_nutricionales["Azúcares"] > 5 and valores_nutricionales["Azúcares"] <= 10:
+            score -= 1
+        
     return score
 
 if __name__ == "__main__":
@@ -337,8 +365,10 @@ if __name__ == "__main__":
     
     # Busca valores nutricionales
     valores_nutricionales = parse_nutritional_info(extracted_text)
-    print(valores_nutricionales)
+    for i in valores_nutricionales:
+        print(i + ": " + str(valores_nutricionales[i]) + " g")
 
-    print(calculate_score())
+    print()
+    print("Puntuación: " + str(calculate_score()))
 
     
