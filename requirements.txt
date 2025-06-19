@@ -1,4 +1,5 @@
 # requirements.txt
+Flask
 pytesseract
 Pillow # A menudo es una dependencia de pytesseract para el manejo de imágenes
 opencv-python # Opcional: si necesitas capacidades de procesamiento de imágenes más avanzadas
