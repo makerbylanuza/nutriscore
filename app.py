@@ -401,6 +401,7 @@ def procesar():
                 ingredientes_positivos_contenidos[ingrediente] = False
         
         # Busca valores nutricionales y calcula puntuación
+        global valores_nutricionales
         valores_nutricionales = parse_nutritional_info(texto_analizar)
         puntos = calculate_score(avisos)
         
