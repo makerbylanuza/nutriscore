@@ -369,6 +369,8 @@ def procesar():
     if imagen and imagen.filename != '':
         try:
             texto_analizar = perform_ocr(imagen)
+            if texto_analizar is None:
+                return "No se pudo extraer texto de la imagen. Verifica que la imagen contenga texto legible.", 400
         except Exception as e:
             return f"Error al procesar imagen: {str(e)}", 400
     elif texto_entrada:
