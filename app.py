@@ -1,7 +1,4 @@
 from flask import Flask, request, render_template
-from PIL import Image
-import pytesseract
-import os
 import re
 
 ingredientes_negativos_nombres = {
@@ -152,24 +149,6 @@ avisos_textos = {
 }
 
 # Funciones
-def perform_ocr(file_storage):
-    """
-    Realiza OCR en una imagen dada (FileStorage) y devuelve el texto extraído.
-    """
-    try:
-        img = Image.open(file_storage.stream)  # 👈 esto ya es correcto
-        print(f"Imagen '{file_storage.filename}' cargada con éxito.")
-
-        text = pytesseract.image_to_string(img, lang='eng+spa')
-        return text
-
-    except pytesseract.TesseractNotFoundError:
-        print("Error: Tesseract no está instalado o no se encuentra en el PATH.")
-        return None
-    except Exception as e:
-        print(f"Ocurrió un error durante el OCR: {e}")
-        return None
-
 def parse_nutritional_info(text):
     nutritional_data = {
         "Sal": "",
@@ -362,21 +341,10 @@ def index():
 @app.route('/procesar', methods=['POST'])
 def procesar():
     texto_entrada = request.form.get('texto', '').strip()
-    imagen = request.files.get('imagen')
-
-    texto_analizar = ""
-
-    if imagen and imagen.filename != '':
-        try:
-            texto_analizar = perform_ocr(imagen)
-            if texto_analizar is None:
-                return "No se pudo extraer texto de la imagen. Verifica que la imagen contenga texto legible.", 400
-        except Exception as e:
-            return f"Error al procesar imagen: {str(e)}", 400
-    elif texto_entrada:
-        texto_analizar = texto_entrada
-    else:
-        return "No se subió imagen ni se ingresó texto.", 400
+    texto_entrada = request.form.get('texto', '').strip()
+    if not texto_entrada:
+        return "No se ingresó texto para analizar.", 400
+    texto_analizar = texto_entrada
 
     try:
         # Busca ingredientes negativos
