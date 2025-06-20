@@ -1,8 +1,4 @@
-# Leer el archivo index.html original
-index_path = os.path.join(repo_root, "templates", "index.html")
-
-# Generar el nuevo contenido de index.html con OCR en el navegador
-new_index_html = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -42,11 +38,3 @@ new_index_html = """<!DOCTYPE html>
     </script>
 </body>
 </html>
-"""
-
-# Sobrescribir index.html
-with open(index_path, "w", encoding="utf-8") as f:
-    f.write(new_index_html)
-
-index_path
-
