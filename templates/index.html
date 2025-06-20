@@ -10,31 +10,51 @@
     <form id="ocr-form" method="POST" action="/procesar">
         <label for="imagen">Selecciona imagen con ingredientes o info nutricional:</label><br>
         <input type="file" id="imagen" accept="image/*"><br><br>
-
+    
         <label for="texto">Texto OCR (puedes editarlo):</label><br>
         <textarea name="texto" id="texto" rows="10" cols="80" placeholder="El texto se mostrará aquí tras el OCR..."></textarea><br><br>
-
+    
         <input type="submit" value="Analizar">
     </form>
-
+    
+    <p id="status"></p>
+    
     <script>
+    document.getElementById('ocr-form').addEventListener('submit', function (e) {
+        const texto = document.getElementById('texto').value.trim();
+        if (!texto) {
+            e.preventDefault();
+            alert("Por favor espera a que se complete el OCR o escribe el texto manualmente.");
+        }
+    });
+    
     document.getElementById('imagen').addEventListener('change', async function (event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const { createWorker } = Tesseract;
-      const worker = await createWorker('spa', 1);
-      await worker.load();
-      await worker.loadLanguage('spa');
-      await worker.initialize('spa');
-
-      const {
-        data: { text },
-      } = await worker.recognize(file);
-
-      document.getElementById('texto').value = text;
-      await worker.terminate();
+        const file = event.target.files[0];
+        if (!file) return;
+    
+        const status = document.getElementById('status');
+        status.textContent = "Procesando imagen...";
+    
+        const { createWorker } = Tesseract;
+        const worker = await createWorker({
+            logger: m => console.log(m)
+        });
+    
+        try {
+            await worker.load();
+            await worker.loadLanguage('spa');
+            await worker.initialize('spa');
+            const { data: { text } } = await worker.recognize(file);
+            document.getElementById('texto').value = text.trim();
+            status.textContent = "OCR completado. Ahora puedes enviar el formulario.";
+        } catch (err) {
+            status.textContent = "Error al procesar imagen con OCR.";
+            console.error(err);
+        } finally {
+            await worker.terminate();
+        }
     });
     </script>
+
 </body>
 </html>
