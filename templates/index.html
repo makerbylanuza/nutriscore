@@ -1,17 +1,52 @@
-<!DOCTYPE html>
+# Leer el archivo index.html original
+index_path = os.path.join(repo_root, "templates", "index.html")
+
+# Generar el nuevo contenido de index.html con OCR en el navegador
+new_index_html = """<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Nutriscore OCR</title>
+    <title>Análisis Nutricional</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
 </head>
 <body>
-    <h1>Sube una imagen o escribe texto para analizar</h1>
-    <form action="/procesar" method="POST" enctype="multipart/form-data">
-        <label>Imagen (foto o captura):</label><br>
-        <input type="file" name="imagen" accept="image/*" capture="camera"><br><br>
-        <label>O texto:</label><br>
-        <textarea name="texto" rows="6" cols="50"></textarea><br><br>
-        <button type="submit">Procesar</button>
+    <h1>Analizador Nutricional</h1>
+    <form id="ocr-form" method="POST" action="/procesar">
+        <label for="imagen">Selecciona imagen con ingredientes o info nutricional:</label><br>
+        <input type="file" id="imagen" accept="image/*"><br><br>
+
+        <label for="texto">Texto OCR (puedes editarlo):</label><br>
+        <textarea name="texto" id="texto" rows="10" cols="80" placeholder="El texto se mostrará aquí tras el OCR..."></textarea><br><br>
+
+        <input type="submit" value="Analizar">
     </form>
+
+    <script>
+    document.getElementById('imagen').addEventListener('change', async function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const { createWorker } = Tesseract;
+      const worker = await createWorker('spa', 1);
+      await worker.load();
+      await worker.loadLanguage('spa');
+      await worker.initialize('spa');
+
+      const {
+        data: { text },
+      } = await worker.recognize(file);
+
+      document.getElementById('texto').value = text;
+      await worker.terminate();
+    });
+    </script>
 </body>
 </html>
+"""
+
+# Sobrescribir index.html
+with open(index_path, "w", encoding="utf-8") as f:
+    f.write(new_index_html)
+
+index_path
+
