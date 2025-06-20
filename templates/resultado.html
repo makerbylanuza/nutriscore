@@ -1,136 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Resultado Nutricional</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 1em;
-            background-color: #fffef0;
-        }
+  <meta charset="UTF-8">
+  <title>Resultado Nutricional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        h1, h2 {
-            text-align: center;
-        }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1em;
+      background-color: #fffef0;
+      color: #333;
+    }
 
-        .puntuacion {
-            font-size: 2.5em;
-            text-align: center;
-            margin: 1em 0;
-            padding: 0.5em 1em;
-            border-radius: 10px;
-            display: inline-block;
-            color: white;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+      margin-bottom: 1em;
+      flex-wrap: wrap;
+      text-align: center;
+    }
 
-        .score-bajo {
-            background-color: #dc3545; /* Rojo */
-        }
+    header img {
+      height: 50px;
+    }
 
-        .score-medio {
-            background-color: #ffc107; /* Amarillo */
-        }
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
 
-        .score-alto {
-            background-color: #28a745; /* Verde */
-        }
+    h2 {
+      text-align: center;
+      margin-top: 1em;
+    }
 
-        table {
-            width: 100%;
-            margin-top: 1em;
-            border-collapse: collapse;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+    .puntuacion {
+      font-size: 2.5em;
+      text-align: center;
+      margin: 1em auto;
+      padding: 0.5em 1em;
+      border-radius: 10px;
+      display: inline-block;
+      color: white;
+    }
 
-        th, td {
-            padding: 0.8em;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+    .score-bajo {
+      background-color: #dc3545;
+    }
 
-        .avisos {
-            background-color: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 1em;
-            border-radius: 10px;
-            margin-top: 2em;
-        }
+    .score-medio {
+      background-color: #ffc107;
+      color: black;
+    }
 
-        .volver {
-            margin-top: 2em;
-            text-align: center;
-        }
+    .score-alto {
+      background-color: #28a745;
+    }
 
-        .volver a {
-            padding: 0.7em 1.2em;
-            text-decoration: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 8px;
-        }
-    </style>
+    .table-container {
+      overflow-x: auto;
+      margin-top: 1em;
+    }
+
+    table {
+      width: 100%;
+      min-width: 300px;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 0.8em;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .avisos {
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      padding: 1em;
+      border-radius: 10px;
+      margin-top: 2em;
+    }
+
+    .avisos ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    .volver {
+      margin-top: 2em;
+      text-align: center;
+    }
+
+    .volver a {
+      padding: 0.7em 1.2em;
+      text-decoration: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+      .puntuacion {
+        font-size: 2em;
+        padding: 0.4em 0.8em;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      th, td {
+        padding: 0.6em;
+      }
+
+      .volver a {
+        font-size: 0.95em;
+        padding: 0.6em 1em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 1em; margin-bottom: 1em;">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="NutriSnap logo" style="height: 60px;">
-        <h1 style="margin: 0;">NutriSnap</h1>
-    </div>
-    
-    <h2>Puntuación total</h2>
-    {% set score_class = "score-bajo" %}
-    {% if resultado.puntuacion >= 0 %}
-        {% set score_class = "score-alto" %}
-    {% elif resultado.puntuacion >= -5 %}
-        {% set score_class = "score-medio" %}
-    {% endif %}
+  <header>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="NutriSnap logo">
+    <h1>NutriSnap</h1>
+  </header>
 
-    <div class="puntuacion {{ score_class }}">
-        {{ resultado.puntuacion }}
-    </div>
+  <h2>Puntuación total</h2>
+  {% set score_class = "score-bajo" %}
+  {% if resultado.puntuacion >= 0 %}
+      {% set score_class = "score-alto" %}
+  {% elif resultado.puntuacion >= -5 %}
+      {% set score_class = "score-medio" %}
+  {% endif %}
 
-    <h2>Valores Nutricionales</h2>
-    <p style="text-align: center; font-style: italic; color: #555;">Valores por 100 g de producto</p>
+  <div class="puntuacion {{ score_class }}">
+    {{ resultado.puntuacion }}
+  </div>
+
+  <h2>Valores Nutricionales</h2>
+  <p style="text-align: center; font-style: italic; color: #555;">Valores por 100 g de producto</p>
+
+  <div class="table-container">
     <table>
-        <thead>
-            <tr>
-                <th>Nutriente</th>
-                <th>Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for clave, valor in resultado.valores.items() %}
-            <tr>
-                <td>{{ clave }}</td>
-                <td>
-                    {% if valor != "" %}
-                        {{ valor }} g
-                    {% else %}
-                        –
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
+      <thead>
+        <tr>
+          <th>Nutriente</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for clave, valor in resultado.valores.items() %}
+        <tr>
+          <td>{{ clave }}</td>
+          <td>
+            {% if valor != "" %}
+              {{ valor }} g
+            {% else %}
+              –
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
+  </div>
 
-    {% if resultado.avisos %}
-    <div class="avisos">
-        <h2>Avisos</h2>
-        <ul>
-            {% for aviso in resultado.avisos %}
-            <li>{{ aviso }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
+  {% if resultado.avisos %}
+  <div class="avisos">
+    <h2>Avisos</h2>
+    <ul>
+      {% for aviso in resultado.avisos %}
+      <li>{{ aviso }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 
-    <div class="volver">
-        <a href="/">Volver</a>
-    </div>
-
+  <div class="volver">
+    <a href="/">Volver</a>
+  </div>
 </body>
 </html>
