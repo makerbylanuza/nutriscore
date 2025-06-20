@@ -26,7 +26,7 @@
         }
 
         .score-bajo {
-            background-color: #28a745; /* Verde */
+            background-color: #dc3545; /* Rojo */
         }
 
         .score-medio {
@@ -34,7 +34,7 @@
         }
 
         .score-alto {
-            background-color: #dc3545; /* Rojo */
+            background-color: #28a745; /* Verde */
         }
 
         table {
@@ -80,9 +80,9 @@
 
     <h2>Puntuación total</h2>
     {% set score_class = "score-bajo" %}
-    {% if resultado.puntuacion >= 10 %}
+    {% if resultado.puntuacion >= 0 %}
         {% set score_class = "score-alto" %}
-    {% elif resultado.puntuacion >= 0 %}
+    {% elif resultado.puntuacion >= -5 %}
         {% set score_class = "score-medio" %}
     {% endif %}
 
