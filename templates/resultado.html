@@ -79,6 +79,7 @@
         <img src="{{ url_for('static', filename='logo.png') }}" alt="Nutriscan logo" style="height: 60px;">
         <h1 style="margin: 0;">Nutriscan</h1>
     </div>
+    
     <h2>Puntuación total</h2>
     {% set score_class = "score-bajo" %}
     {% if resultado.puntuacion >= 0 %}
