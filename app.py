@@ -330,8 +330,6 @@ def calculate_score(avisos):
         
     return score
 
-avisos = []
-
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -340,6 +338,7 @@ def index():
 
 @app.route('/procesar', methods=['POST'])
 def procesar():
+    avisos = []
     texto_entrada = request.form.get('texto', '').strip()
     texto_entrada = request.form.get('texto', '').strip()
     if not texto_entrada:
