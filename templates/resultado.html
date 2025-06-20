@@ -75,9 +75,10 @@
     </style>
 </head>
 <body>
-
-    <h1>Resultado Nutricional</h1>
-
+    <div style="display: flex; align-items: center; justify-content: center; gap: 1em; margin-bottom: 1em;">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Nutriscan logo" style="height: 60px;">
+        <h1 style="margin: 0;">Nutriscan</h1>
+    </div>
     <h2>Puntuación total</h2>
     {% set score_class = "score-bajo" %}
     {% if resultado.puntuacion >= 0 %}
